@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <title>Php Dischi</title>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+</head>
+<body>
+    
+    <div id="root">
+        <div class="container">
+            <header>
+                <img class="logo" src="http://pluspng.com/img-png/spotify-logo-png-open-2000.png" alt="">
+
+                <select @change="getDiscsApi" v-model="selectedGenre">
+                    <option value="">All</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Metal">Metal</option>
+                    <option value="Jazz">Jazz</option>
+                </select>
+            </header>
+    
+            <div class="discs-container">
+                <!-- Template single disc -->
+                <div v-for="(disc, index) in discs" :key="index" class="disc">
+                    <img :src="disc.poster" />
+    
+                    <h3>{{ disc.title }}</h3>
+                    <small>{{ disc.author }}</small>
+                    <strong>{{ disc.year }}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
